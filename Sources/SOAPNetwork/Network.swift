@@ -8,6 +8,7 @@
 
 import Alamofire
 import SWXMLHash
+import Foundation
 
 public class Network {
     

@@ -7,6 +7,7 @@
 //
 
 import SWXMLHash
+import Foundation
 
 public struct Response<T: Request> {
     public let data: T.responseObject?
