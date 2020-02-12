@@ -12,6 +12,8 @@
 		6F314AC923F435AE00FD5BE6 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F314AC823F435AE00FD5BE6 /* Request.swift */; };
 		6F314ACB23F435C300FD5BE6 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F314ACA23F435C300FD5BE6 /* Network.swift */; };
 		6F314AF123F4372400FD5BE6 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F314AF023F4372400FD5BE6 /* Response.swift */; };
+		6F314AF423F4392C00FD5BE6 /* SWXMLHash in Frameworks */ = {isa = PBXBuildFile; productRef = 6F314AF323F4392C00FD5BE6 /* SWXMLHash */; };
+		6F314AF823F43B4100FD5BE6 /* Result+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F314AF723F43B4100FD5BE6 /* Result+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,7 @@
 		6F314AC823F435AE00FD5BE6 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		6F314ACA23F435C300FD5BE6 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		6F314AF023F4372400FD5BE6 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		6F314AF723F43B4100FD5BE6 /* Result+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F314AF423F4392C00FD5BE6 /* SWXMLHash in Frameworks */,
 				6F314AC723F4359600FD5BE6 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,6 +63,7 @@
 				6F314AC823F435AE00FD5BE6 /* Request.swift */,
 				6F314ACA23F435C300FD5BE6 /* Network.swift */,
 				6F314AF023F4372400FD5BE6 /* Response.swift */,
+				6F314AF723F43B4100FD5BE6 /* Result+Extensions.swift */,
 			);
 			path = SOAPNetwork;
 			sourceTree = "<group>";
@@ -93,6 +98,7 @@
 			name = SOAPNetwork;
 			packageProductDependencies = (
 				6F314AC623F4359600FD5BE6 /* Alamofire */,
+				6F314AF323F4392C00FD5BE6 /* SWXMLHash */,
 			);
 			productName = SOAPNetwork;
 			productReference = 6F314ABA23F4352200FD5BE6 /* SOAPNetwork.framework */;
@@ -124,6 +130,7 @@
 			mainGroup = 6F314AB023F4352200FD5BE6;
 			packageReferences = (
 				6F314AC523F4359600FD5BE6 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				6F314AF223F4392C00FD5BE6 /* XCRemoteSwiftPackageReference "SWXMLHash" */,
 			);
 			productRefGroup = 6F314ABB23F4352200FD5BE6 /* Products */;
 			projectDirPath = "";
@@ -149,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F314AF823F43B4100FD5BE6 /* Result+Extensions.swift in Sources */,
 				6F314ACB23F435C300FD5BE6 /* Network.swift in Sources */,
 				6F314AF123F4372400FD5BE6 /* Response.swift in Sources */,
 				6F314AC923F435AE00FD5BE6 /* Request.swift in Sources */,
@@ -361,6 +369,14 @@
 				version = "5.0.0-rc.3";
 			};
 		};
+		6F314AF223F4392C00FD5BE6 /* XCRemoteSwiftPackageReference "SWXMLHash" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/drmohundro/SWXMLHash.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -368,6 +384,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6F314AC523F4359600FD5BE6 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		6F314AF323F4392C00FD5BE6 /* SWXMLHash */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6F314AF223F4392C00FD5BE6 /* XCRemoteSwiftPackageReference "SWXMLHash" */;
+			productName = SWXMLHash;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

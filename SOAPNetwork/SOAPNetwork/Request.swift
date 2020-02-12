@@ -7,10 +7,16 @@
 //
 
 import Alamofire
+import SWXMLHash
 
 public protocol Request {
     
-    associatedtype responseObject: Decodable
+    associatedtype responseObject: (Decodable & XMLIndexerDeserializable)
     
     var body: String { get }
+}
+
+public struct Authorization {
+    let username: String
+    let password: String
 }
