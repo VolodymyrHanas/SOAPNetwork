@@ -43,9 +43,9 @@ public class Network {
         }
         
         if let data = response.data {
-            let xml = SWXMLHash.parse(data)
+            let xml = SWXMLHash.parse(data)["SOAP-ENV:Envelope"]["SOAP-ENV:Body"]
             
-            if let responseBody = try? xml.byKey("SOAP-ENV:Envelope").byKey("SOAP-ENV:Body").byKey(request.responseKey) {
+            if let responseBody = try? xml.byKey(request.responseKey) {
                 
                 var responseObject: T.responseObject?
                 
@@ -58,7 +58,7 @@ public class Network {
                 completion(.success(Response(data: responseObject, statusCode: response.response?.statusCode ?? 0)))
                 
             } else {
-                let failBody = xml["SOAP-ENV:Envelope"]["SOAP-ENV:Fault"]
+                let failBody = xml["SOAP-ENV:Fault"]
                 completion(.failure(try! SOAPError.deserialize(failBody)))
             }
         }
