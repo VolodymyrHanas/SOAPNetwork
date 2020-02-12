@@ -4,3 +4,5 @@ SOAPNetwork/SOAPNetwork.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceC
 .build/
 .swiftpm/
 SOAPNetwork/SOAPNetwork.xcodeproj
+SOAPNetwork.xcodeproj/Alamofire_Info.plist
+SOAPNetwork.xcodeproj/
