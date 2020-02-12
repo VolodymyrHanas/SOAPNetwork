@@ -1,3 +1,6 @@
 SOAPNetwork/SOAPNetwork.xcodeproj/project.xcworkspace/xcuserdata/volodymyrhanas.xcuserdatad/UserInterfaceState.xcuserstate
 SOAPNetwork/SOAPNetwork.xcodeproj/project.xcworkspace/contents.xcworkspacedata
 SOAPNetwork/SOAPNetwork.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+.build/
+.swiftpm/
+SOAPNetwork/SOAPNetwork.xcodeproj
