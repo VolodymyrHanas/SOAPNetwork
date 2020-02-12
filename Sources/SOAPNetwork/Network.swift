@@ -68,8 +68,7 @@ public class Network {
         
         var request = URLRequest(url: baseURL)
         
-        let body = try? JSONSerialization.data(withJSONObject: req.body, options: [])
-        request.httpBody = body
+        request.httpBody = req.body.data(using: .utf8)
         
         if let authorization = authorization {
             let loginString = String(format: "%@:%@", authorization.username, authorization.password)
