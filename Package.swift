@@ -7,11 +7,5 @@ let package = Package(
             name: "SOAPNetwork",
             targets: ["SOAPNetwork"]
         )
-    ],
-    targets: [
-        .target(
-            name: "SOAPNetwork",
-            path: "SOAPNetwork"
-        )
     ]
 )
