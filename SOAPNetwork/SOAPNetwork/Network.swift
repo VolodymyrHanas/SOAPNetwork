@@ -25,7 +25,7 @@ public class Network {
         let requestURL = createURLRequest(with: request)
         
         session.request(requestURL).response(completionHandler: { response in
-            self.handle(response, with: completion)
+            self.handle(response, for: request, with: completion)
         })
     }
     
@@ -35,13 +35,31 @@ public class Network {
         })
     }
     
-    private func handle<T: Request>(_ response: AFDataResponse<Data?>,with completion: @escaping (Result<Response<T>, Error>) -> Void) {
-        if let data = response.data, let statusCode = response.response?.statusCode, response.error == nil {
-            let responseObject = try? JSONDecoder().decode(ServerResponse<T>.self, from: data)
-            let result = Response<T>(data: responseObject?.data, statusCode: statusCode)
-            completion(.success(result))
-        } else {
-            completion(.failure(response.error!))
+    private func handle<T: Request>(_ response: AFDataResponse<Data?>, for request: T, with completion: @escaping (Result<Response<T>, Error>) -> Void) {
+        
+        if let error = response.error {
+            completion(.failure(error))
+        }
+        
+        if let data = response.data {
+            let xml = SWXMLHash.parse(data)
+            
+            if let responseBody = try? xml.byKey("SOAP-ENV:Envelope").byKey("SOAP-ENV:Body").byKey(request.responseKey) {
+                
+                var responseObject: T.responseObject?
+                
+                if let jsonData = responseBody["return"].element?.text.data(using: .utf8) {
+                    responseObject = try? JSONDecoder().decode(T.responseObject.self, from: jsonData)
+                } else {
+                    responseObject = try? T.responseObject.deserialize(responseBody)
+                }
+                
+                completion(.success(Response(data: responseObject, statusCode: response.response?.statusCode ?? 0)))
+                
+            } else {
+                let failBody = xml["SOAP-ENV:Envelope"]["SOAP-ENV:Fault"]
+                completion(.failure(try! SOAPError.deserialize(failBody)))
+            }
         }
     }
     

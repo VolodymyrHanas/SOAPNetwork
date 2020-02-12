@@ -13,6 +13,7 @@ public protocol Request {
     
     associatedtype responseObject: (Decodable & XMLIndexerDeserializable)
     
+    var responseKey: String { get }
     var body: String { get }
 }
 
