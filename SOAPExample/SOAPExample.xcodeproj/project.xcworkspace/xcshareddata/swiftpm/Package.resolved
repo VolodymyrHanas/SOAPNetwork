@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Alamofire",
+        "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
+        "state": {
+          "branch": null,
+          "revision": "fca036f7aeca07124067cb6e0c12b0ad6359e3d4",
+          "version": "5.1.0"
+        }
+      },
+      {
+        "package": "SOAPNetwork",
+        "repositoryURL": "https://github.com/VolodymyrHanas/SOAPNetwork.git",
+        "state": {
+          "branch": "master",
+          "revision": "fa0a9179beef80cf9ced25fcd3c3b5f533380865",
+          "version": null
+        }
+      },
+      {
+        "package": "SWXMLHash",
+        "repositoryURL": "https://github.com/drmohundro/SWXMLHash.git",
+        "state": {
+          "branch": null,
+          "revision": "a4931e5c3bafbedeb1601d3bb76bbe835c6d475a",
+          "version": "5.0.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
